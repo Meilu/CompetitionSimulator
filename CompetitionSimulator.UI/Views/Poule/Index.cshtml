@@ -1,0 +1,29 @@
+﻿@model CompetitionSimulator.UI.ViewModel.CompetitionViewModel
+
+@{
+    ViewBag.Title = "Poule simulatie";
+    Layout = "_Layout";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Poule</h2>
+
+        @{ Html.RenderPartial("_CompetitionTable", Model); }
+        
+        <p>
+            @Html.ActionLink(
+                linkText:"Opnieuw",
+                actionName: "Index",
+                controllerName: "Poule",
+                htmlAttributes: new { @class = "btn btn-primary btn-lg" },
+                routeValues: null
+                )
+        </p>
+
+        @{ Html.RenderPartial("_CompetitionFixtures", Model); }
+
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@model CompetitionSimulator.UI.ViewModel.CompetitionViewModel
+@{ var temp = Model.Table.TableEntries.FirstOrDefault(); }
+<table class="table" style="width: 100%">
+    <thead>
+        <tr>
+            <th>Positie</th>
+            <th>@Html.DisplayNameFor(d => temp.Team)</th>
+            <th>@Html.DisplayNameFor(d => temp.Played)</th>
+            <th>@Html.DisplayNameFor(d => temp.Won)</th>
+            <th>@Html.DisplayNameFor(d => temp.Drawn)</th>
+            <th>@Html.DisplayNameFor(d => temp.Lost)</th>
+            <th>@Html.DisplayNameFor(d => temp.GoalsFor)</th>
+            <th>@Html.DisplayNameFor(d => temp.GoalsAgainst)</th>
+            <th>@Html.DisplayNameFor(d => temp.GoalDifference)</th>
+            <th>@Html.DisplayNameFor(d => temp.Points)</th>
+            <th>@Html.DisplayNameFor(d => temp.Reward)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Table.TableEntries.Count(); i++)
+        {
+            var rule = Model.Rules.SingleOrDefault(r => r.Position == i + 1);
+
+
+        <tr style="@(rule != null ? "background-color: " + rule.TableRowColor.ToKnownColor() + "; color: " + rule.TableTextColor.ToKnownColor()  : "")">
+        <td>@(i + 1)</td>
+        <td>@Model.Table.TableEntries[i].Team</td>
+        <td>@Model.Table.TableEntries[i].Played</td>
+        <td>@Model.Table.TableEntries[i].Won</td>
+        <td>@Model.Table.TableEntries[i].Drawn</td>
+        <td>@Model.Table.TableEntries[i].Lost</td>
+        <td>@Model.Table.TableEntries[i].GoalsFor</td>
+        <td>@Model.Table.TableEntries[i].GoalsAgainst</td>
+        <td>@Model.Table.TableEntries[i].GoalDifference</td>
+        <td>@Model.Table.TableEntries[i].Points</td>
+        <td>@rule?.Consequence</td>
+    </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,28 @@
+﻿@model List<CompetitionSimulator.UI.ViewModel.TeamViewModel>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Teams</h2>
+@{ var temp = Model.FirstOrDefault(); }
+<table class="table" style="width: 100%">
+    <thead>
+        <tr>
+            <th>Positie</th>
+            <th>@Html.DisplayNameFor(d => temp.Name)</th>
+            <th>@Html.DisplayNameFor(d => temp.TeamStrength)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <tr>
+                <td>@(i + 1)</td>
+                <td>@Model[i].Name</td>
+                <td>@Model[i].TeamStrength</td>
+            </tr>
+        }
+    </tbody>
+</table>

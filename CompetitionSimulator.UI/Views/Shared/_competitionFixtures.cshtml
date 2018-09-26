@@ -1,0 +1,28 @@
+﻿@model CompetitionSimulator.UI.ViewModel.CompetitionViewModel
+
+<div class="container" style="display: flex; align-items: stretch; flex-wrap: wrap">
+    
+    @for (int i = 0; i < Model.FixtureSchedule.Fixtures.Count(); i++)
+    {
+        var fixture = Model.FixtureSchedule.Fixtures[i];
+
+        <div class="card" style="background-color: grey; padding: 10px">
+            <div class="card-header">
+                Wedstrijddag @(i + 1)
+            </div>
+            <div class="card-body">
+                @for (int x = 0; x < fixture.Matches.Count(); x++)
+                {
+                    var match = fixture.Matches[x];
+
+                    <div class="card" style="width: 18rem; background-color: whitesmoke; padding: 10px;">
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.Raw(match.Description)</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@match.MatchResult</h6>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>

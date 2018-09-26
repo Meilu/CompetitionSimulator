@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+<h1>Competitie Simulator</h1>
+</div>
+
+<div class="row">
+    
+    <div class="col-md-4">
+        <h2>Teams</h2>
+        <p>
+            Bekijk de lijst met vooraf gedefineerde teams. Deze worden gebruikt in de Eredivisie en poule simulatie.
+        </p>
+        <p>
+            @Html.ActionLink(
+                linkText:"Ga",
+                actionName: "Index", 
+                controllerName: "Teams", 
+                htmlAttributes: new { @class = "btn btn-primary btn-lg" },
+                routeValues: null
+                )
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Eredivisie</h2>
+        <p>
+            Simuleer een seizoen eredivisie met behulp van vooraf gedefineerde teams en regels.
+        </p>
+        <p>
+            @Html.ActionLink(
+                linkText: "Simuleer",
+                actionName: "Index",
+                controllerName: "Eredivisie",
+                htmlAttributes: new {@class = "btn btn-primary btn-lg"},
+                routeValues: null
+                )
+        </p>
+    </div>
+
+    <div class="col-md4">
+        <h2>Poule simulatie</h2>
+        <p>Selecteer willekeurig 5 teams uit de Eredivisie die mee zullen spelen in een nieuwe poule.</p>
+        <p>@Html.ActionLink(
+               linkText: "Simuleer",
+               actionName: "Index",
+               controllerName: "Poule",
+               htmlAttributes: new {@class = "btn btn-primary btn-lg"},
+               routeValues: null
+               )</p>
+    </div>
+@{/*
+    <div class="col-md-3">
+        <h2>Custom Competion</h2>
+        <p>Creeër tot 5 nieuwe teams die onderling het uit zullen vechten in een nieuwe competitie.</p>
+        
+    </div>
+    */}
+</div>
