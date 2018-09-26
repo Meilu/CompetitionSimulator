@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MatchSimulator\CompetitionSimulator.Core.csproj" />
+    <ProjectReference Include="..\CompetitionSimulator.Core\CompetitionSimulator.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
